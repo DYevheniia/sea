@@ -1,0 +1,68 @@
+@import components/mixin
+html
+    // font-size: 1px
+    cursor: url(../img/cursor/cursor.cur), auto
+
+body
+    margin: 0
+    background: #773
+    font-size: 1px
+
+a
+    display: inline-block
+    text-decoration: none
+button.cur
+    cursor: url(../img/cursor/hover.cur), auto!important
+.flex-between
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+header
+    +gradientBG("../header-bg.jpg")
+
+.container
+    max-width: 1200px
+    width: 100%
+    padding: 0 15px
+    box-sizing: border-box
+
+.header-line
+    padding: 35px 0
+
+.logo
+    height: 100%
+    picture
+        display: inline-block
+        height: 100%
+        img
+            width: 100%
+    &:hover
+        cursor: url(../img/cursor/hover.cur), auto
+        
+
+ul.menu
+    padding: 0
+    margin: 0
+    list-style: none
+
+
+.header-menu
+    // background: transparant 
+    a
+        font-size: 14px
+        letter-spacing: 1px
+        text-transform: uppercase
+        color: #fff
+        font-weight: 400
+        font-family: "Rubik"
+        text-align: right
+        transition: .5s ease all
+        &:hover
+            cursor: url(../img/cursor/hover.cur), auto
+            color: #ffb700
+    li+li
+        padding-left: 25px
+
+.flex-end
+    justify-content: flex-end

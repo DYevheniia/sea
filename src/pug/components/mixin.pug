@@ -1,0 +1,73 @@
+-
+    let cardsInfo = {
+        satelite: {
+            img: "img/satelite.png",
+            alt: "satelite",
+            headerline: "personal",
+            currence: "$",  
+            price: 0,
+            isMonth: true,
+            description: [
+                "Lorem ipsum dolor sit amet.",
+                "sed do eiusmod tempor incididunt ut.",
+                "Labore et dolore magna aliqua.",
+                "quis nostrud exercitation ullamco laboris.",
+                "Ea commodo consequat.",
+            ],
+            btnText: "select plan",
+            href: "#",
+        },
+        mars: {
+            img: "img/mars.png",
+            alt: "mars",
+            headerline: "personal",
+            currence: "$",
+            price: 29,
+            isMonth: true,
+            description: [
+                "Lorem ipsum dolor sit amet.",
+                "sed do eiusmod tempor incididunt ut.",
+                "Labore et dolore magna aliqua.",
+                "quis nostrud exercitation ullamco laboris.",
+                "Ea commodo consequat.",
+            ],
+            btnText: "select plan",
+            href: "#",
+        },
+        rocket: {
+            img: "img/rocket.png",
+            alt: "satelite",
+            headerline: "personal",
+            currence: "$",
+            price: 45,
+            isMonth: true,
+            description: [
+                "Lorem ipsum dolor sit amet.",
+                "sed do eiusmod tempor incididunt ut.",
+                "Labore et dolore magna aliqua.",
+                "quis nostrud exercitation ullamco laboris.",
+                "Ea commodo consequat.",
+            ],
+            btnText: "select plan",
+            href: "#",
+        }
+    }
+
+
+mixin card(oneCard) 
+    figure.card
+        figcaption 
+            .wrap-img
+                img(src=oneCard.img, alt=oneCard.alt) 
+            p.headerline #{oneCard.headerline}
+            p.price 
+                span.currency $
+                b #{oneCard.price}
+                if oneCard.isMonth
+                    i /month
+                else 
+                    i /year
+            ul.menu 
+                for oneText in oneCard.description
+                    li #{oneText}
+            a(href=oneCard.href) #{oneCard.btnText}
