@@ -2,7 +2,15 @@
     @media screen and (min-width: #{$size}px)
         @content
 
-=gradientBG ($url)
-    background-color: #2159d8
-    background: url(#{$url}) center / cover
-   
+=gradientBG ($url, $top: true)
+    @if $top == true
+        background-color: #2159d8
+        background: linear-gradient(to top, transparent 60%, #ffffff 100%), url(#{$url}) center / cover
+    @else
+        background-color: #2159d8
+        background: linear-gradient(to bottom, transparent 60%, #ffffff 100%), url(#{$url}) center / cover
+
+
+=gradientBG1 ($url)
+    background: rgb(20, 46, 63)
+    background: linear-gradient(45deg, rgba(20, 46, 63, 0.8), rgba(20, 46, 63, 0.8)), url(#{$url}) center / cover

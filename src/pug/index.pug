@@ -12,67 +12,135 @@ html(lang="en")
         title Document
     body 
         include components/mixin
-        //- include ../img/sprite.svg
+        include ../img/sprite.svg
         header 
-            .container 
-                //- .header-line.flex-between
-                   
-                    //- .logo 
-                    //-     a(href="index.html") 
-                    //-         picture 
-                    //-             source(srcset="img/logo.webp", type="image/webp")
-                    //-             img(src="img/logo.png", alt="Логотип туристичної кампанії")
-                    //- ul.menu.flex-between.header-menu
-                    //-     li
-                    //-         a(href="#") ГОловна
-                    //-     li
-                    //-         a(href="#") послуги
-                    //-     li
-                    //-         a(href="#") про компанію
-                    //-     li
-                    //-         a(href="#") Акції
-                    //-     li
-                    //-         a(href="#") Партнери
-                    //-     li
-                    //-         a(href="#") відгуки
-                    //-     li
-                    //-         a(href="#") Контакти
-
-
-                <nav class="navbar navbar-expand-lg">
-                    <div class="container-fluid">
-                        <a class="navbar-brand logo" href="#">
-                            <picture>
-                                <source srcset="img/logo.webp" type="image/webp"/>
-                                <img src="img/logo.png" alt="Логотип туристичної кампанії"/>
-                            </picture>
-                        </a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="cur navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse flex-end" id="navbarNav">
-                            <ul class="navbar-nav header-menu">
-                                <li class="nav-item">
-                                    <a class="nav-link" aria-current="page" href="#">ГОловна</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">послуги</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">про компанію</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link"  href="#">Акції</a>
-                                </li><li class="nav-item">
-                                    <a class="nav-link"  href="#">Партнери</a>
-                                </li><li class="nav-item">
-                                    <a class="nav-link"  href="#">відгуки</a>
-                                </li><li class="nav-item">
-                                    <a class="nav-link"  href="#">Контакти</a>
-                                </li>
-                            </ul>
-                        </div>
+            <nav class="navbar header-line navbar-expand-lg">
+                <div class="container">
+                    <a class="navbar-brand logo" href="#">
+                        <picture>
+                            <source srcset="img/logo.webp" type="image/webp"/>
+                            <img src="img/logo.png" alt="Логотип туристичної кампанії"/>
+                        </picture>
+                    </a>
+                    <button class="cur navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse flex-end" id="navbarNav">
+                        <ul class="navbar-nav header-menu">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#">ГОловна</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">послуги</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">про компанію</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"  href="#">Акції</a>
+                            </li><li class="nav-item">
+                                <a class="nav-link"  href="#">Партнери</a>
+                            </li><li class="nav-item">
+                                <a class="nav-link"  href="#">відгуки</a>
+                            </li><li class="nav-item">
+                                <a class="nav-link"  href="#">Контакти</a>
+                            </li>
+                        </ul>
                     </div>
-                </nav>    
-                                            
+                </div>
+            </nav>
+            .header-content.container
+                h1 Морські пригоди
+                p.first Не важливо, чи Ваша мандрівка належить до елітного рівня чи до економваріанту, туроператор S trips потурбується, щоб Ви залишились задоволеними!
+                a(href="#").first детальніше
+                h2 обери свій план подорожі
+                p.last Наша фірма -лідер на ринку у своїй сфері
+                a(href="#next").arrow-block
+                    span.arrow 
+                    span.arrow.arrow-bottom
+        main 
+            section.container#next
+                .about-block
+                    .row
+                        .about.col-lg-3.col-md-6.col-cm-12
+                            h2 про нашу компанію
+                            p.about-first Наша компанія пропонує ряд цікавих-розважальних послуг, які принесуть вам ряд вражень!
+                            a(href="#").first детальніше 
+                            p * - зверніть увагу, зміна ціни може залежати від курсу долара.
+                        +card (cardsInfo.bike)
+                        +card (cardsInfo.island)
+                        +card (cardsInfo.message)
+                    .watch
+                        a(href="#") дивитись усі плани
+            hr.container
+            section.container
+                .island-block
+                    .row 
+                        .island-wrap-img.col-lg-4.col-md-5
+                            img(src="img/island.jpg", alt="")
+                        .island.col-lg-8.col-md-7
+                            h2 Дивовижний безлюдний острів, який зводить людей з розуму
+                            .island-text
+                                .row.flex-between
+                                    .text-block.col-lg-8.col-md-12
+                                        p Пхукет - курортно-туристична Мекка Таїланду. Білосніжний пісок, і бірюзове море, і мальовничі скелі, а на них же, трохи вище - буйна тропічна рослинність. Все це можна побачити на власні очі.
+                                        .button-line
+                                            a(href="#") замовити тур
+                                            a(href="#") детальніше
+                                    .col-lg-4.col-md-12
+                                        .island-price
+                                            p 575 грн./день
+                                            p В дану вартість входить обслуговування персоналу, вечеря і захоплюючі історії.
+            section.wave-bg
+                .container
+                    .row.flex-between
+                        .wave-text.col-lg-6.col-cm-12
+                            h2 спіймай хвилю
+                            span живи яскраво!
+                            p Полюбляєш екстрим та пригоди? Тоді тобі точно до нас! Мрієш стати на сапборд, але ніяк не міг наважитсь? Наші досвдчені інструктори навчать тебе вміло «піймати хвилі» та відчути себе справжнім сьорфером!
+                            a(href="#").button детальніше
+                        .client.col-lg-6.col-cm-12
+                            div
+                                p.client-comment Чудова туристична фірма, що повністю виправдала мої очікування від подорожі. Я був приємно вражений екскурсіями, що для мене підібрали, працюють спражні професіонали своєї справи. 
+                                h3 Олег Набережний
+                                p клієнт
+            section.offer
+                .container 
+                    h2 Спеціальні пропозиції тижня
+                    p 
+                        i Гарячі праозиції, по-швидше обирай і поїхали!
+                    .row
+                        
+                        +cards (cardsOffer.travel)
+                        +cards (cardsOffer.bike)
+                        +cards (cardsOffer.island)
+                        +cards (cardsOffer.surfing)
+            hr.container
+            section.add-block
+                .container 
+                    .row
+                        h2.col-lg-3.col-cm-12.add-info додаткова інформація
+                        .col-lg-3.col-md-6.col-cm-12
+                            .graphic.info-card
+                                +cardAdd(cardAdd.graphic)
+                        .col-lg-3.col-md-6.col-cm-12
+                            .info.info-card
+                                +cardAdd(cardAdd.info)
+                        .col-lg-3.col-cm-12.col-md-6
+                            .question.info-card
+                                .anna
+                                    h4 задати питання
+                                    p Скажіть доброго дня нашому консультанту, і ми з радістю відповімо на Ваші запитання
+                                    .question-num
+                                        a(href="tel:+380505698511") +38 (050) 56 98 511
+                                    h3 Анна Миколаївна
+                                    p консультант
+        footer 
+            .palma-block
+            .copy 
+                .container 
+                    p © 2016 Cars.com All rights reserved.
+
+
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>

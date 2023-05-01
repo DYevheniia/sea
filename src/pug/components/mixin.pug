@@ -1,73 +1,168 @@
 -
     let cardsInfo = {
-        satelite: {
-            img: "img/satelite.png",
-            alt: "satelite",
-            headerline: "personal",
-            currence: "$",  
-            price: 0,
-            isMonth: true,
+        bike: {
+            before: false,
+            svg: "#bike",
+            headerline: "Тур на велосипедах",
+            currence: "",  
+            price: "335 грн*",
             description: [
-                "Lorem ipsum dolor sit amet.",
-                "sed do eiusmod tempor incididunt ut.",
-                "Labore et dolore magna aliqua.",
-                "quis nostrud exercitation ullamco laboris.",
-                "Ea commodo consequat.",
+                "Подорожуючи  на велосипеді, ви поринете в атмосферу мальовничих гір, чарівнмх краєвидів та шалених пригод."
             ],
-            btnText: "select plan",
-            href: "#",
         },
-        mars: {
-            img: "img/mars.png",
-            alt: "mars",
-            headerline: "personal",
-            currence: "$",
-            price: 29,
-            isMonth: true,
+        island: {
+            before: true,
+            svg: "#circle",
+            headerline: "Екскурсія на острів",
+            price: "500 грн*",
             description: [
-                "Lorem ipsum dolor sit amet.",
-                "sed do eiusmod tempor incididunt ut.",
-                "Labore et dolore magna aliqua.",
-                "quis nostrud exercitation ullamco laboris.",
-                "Ea commodo consequat.",
+                "Подорож на острів занурить Вас у незабутнні пригоди. Неймовірна краса  у будь-яку пору року ."
             ],
-            btnText: "select plan",
-            href: "#",
         },
-        rocket: {
-            img: "img/rocket.png",
-            alt: "satelite",
-            headerline: "personal",
-            currence: "$",
-            price: 45,
-            isMonth: true,
+        message: {
+            before: true,
+            svg: "#message",
+            headerline: "Особливе замовлення",
+            currence: "",  
+            price: "250 грн*",
             description: [
-                "Lorem ipsum dolor sit amet.",
-                "sed do eiusmod tempor incididunt ut.",
-                "Labore et dolore magna aliqua.",
-                "quis nostrud exercitation ullamco laboris.",
-                "Ea commodo consequat.",
+                "Обираючи цю подорож, Ви самостійно робите її незабутнбою та не схожою на будь-які інші. ",
             ],
-            btnText: "select plan",
-            href: "#",
         }
     }
 
 
 mixin card(oneCard) 
-    figure.card
-        figcaption 
-            .wrap-img
-                img(src=oneCard.img, alt=oneCard.alt) 
-            p.headerline #{oneCard.headerline}
-            p.price 
-                span.currency $
-                b #{oneCard.price}
-                if oneCard.isMonth
-                    i /month
-                else 
-                    i /year
-            ul.menu 
-                for oneText in oneCard.description
-                    li #{oneText}
-            a(href=oneCard.href) #{oneCard.btnText}
+    .col-lg-3.col-md-6.col-cm-12
+        figure.cards
+            if oneCard.before
+                a(href="#").green.absolute
+            else 
+                a(href="#").absolute
+            figcaption 
+                .wrap-img
+                    svg 
+                        use(xlink:href=oneCard.svg)
+                h3.headerline #{oneCard.headerline}
+                p.price #{oneCard.price}
+                p.des #{oneCard.description}
+
+
+
+-
+    let cardsOffer = {
+        travel: {
+            velo: false,
+            before: true,
+            img: "img/travel.jpg",
+            alt: "",
+            headerline: "Романтична подорож на 2",
+            description: [
+                "Подорож у найромантичніші куточки світу, занурить вас у дивовижні пейзажі природи.",
+            ],
+            price: "2599 грн.",
+            order: "замовити",
+        },
+        bike: {
+            velo: true,
+            before: true,
+            img: "img/bike.jpg",
+            alt: "",
+            headerline: "Велотур",
+            description: [
+                "Бажаєте прокататись з вітерцем, та ще й з критим краєвидом довкола? Тоді швидше замовляй велотур!"
+            ],
+            price: "555 грн.",
+            order: "замовити",
+        },
+        island: {
+            velo: false,
+            before: true,
+            img: "img/island-card.jpg",
+            alt: "",
+            headerline: "На острови!",
+            description: [
+                "Хочеш зануритись у тишу, місце де не має натовпу, та панує дмка природа? Тоді вперед за пригодами!"
+            ],
+            price: "31559 грн.",
+            order: "замовити",
+        },
+        surfing: {
+            velo: false,
+           before: true,
+            img: "img/surfing.jpg",
+            alt: "",
+            headerline: "Катання на сьорфінгу",
+            description: [
+                "Хочеш отримати екстрим та мега вражень одночасно? Тоді вперед ловити хвилі!"
+            ],
+            price: "999 грн",
+            order: "замовити",
+        },
+        
+    }
+
+
+mixin cards(cardsOffer) 
+    .col-lg-3.col-md-6.col-cm-12
+        figure.cards-offer
+            if cardsOffer.before
+                a(href="#").green.absolute
+            else 
+                a(href="#").absolute
+            figcaption 
+                if cardsOffer.velo 
+                    .wrap-img.velo
+                        img(src=cardsOffer.img, alt=cardsOffer.alt)
+                else
+                    .wrap-img
+                        img(src=cardsOffer.img, alt=cardsOffer.alt)
+                .offer-text
+                    h3.headerline #{cardsOffer.headerline}
+                    p.desc #{cardsOffer.description}
+                    .order-line.flex-between
+                        p.price #{cardsOffer.price}
+                        a(href="#").price #{cardsOffer.order}
+
+
+-
+    let cardAdd = {
+        graphic: {
+            svg: "#document",
+            altSvg: "rr",
+            headerline: "Графік роботи готелів.xls",
+            subtitle: "Розмір файла: 10Mb",
+            description: [
+                "Розклад роботи усіх наших готелів, можете знайти за цим посиланням. Та додатково завантажити їх фото."
+            ],
+            sky: "#sky",
+            altSky: "",
+            download: "скачати",
+        },
+        info: {
+            svg: "#document",
+            altSvg: "rr",
+            headerline: "Інформація про харчування.xls",
+            subtitle: "Розмір файла: 10Mb",
+            description: [
+                "У будь-якому нашому турі включені сніданки у вартість. Якщо ж бажаєте замовити додотково, то ознайомтесь з умовами."
+            ],
+            sky: "#sky",
+            altSky: "",
+            download: "скачати",
+        },
+    }
+
+
+
+mixin cardAdd(cardAdd) 
+    .cardsAdd.flex
+        .svg-wrap
+            img(src="img/document.svg", alt="Іконка файлів") 
+        .svg-text
+            h3 #{cardAdd.headerline}
+            p #{cardAdd.subtitle}
+    .des-block 
+        p #{cardAdd.description}
+        a(href="#").button-sky #{cardAdd.download}
+            

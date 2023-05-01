@@ -1,16 +1,41 @@
 @import components/mixin
+.sprite
+    display: none
 html
-    // font-size: 1px
+    font-size: 15px
     cursor: url(../img/cursor/cursor.cur), auto
+    +media(1600)
+        font-size: 17px
+    +media(1700)
+        font-size: 20px
+    +media(1900)
+        font-size: 20px
 
 body
     margin: 0
-    background: #773
-    font-size: 1px
+    // background: #773
+
+img
+    width: 100%
+    object-fit: cover
+
+hr
+    margin: 0
+    border: none
+    border-bottom: 0.06rem solid #dfe3e6
 
 a
-    display: inline-block
     text-decoration: none
+    &:hover
+        cursor: url(../img/cursor/hover.cur), auto
+.absolute
+    position: absolute
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+.flex
+    display: flex
 button.cur
     cursor: url(../img/cursor/hover.cur), auto!important
 .flex-between
@@ -18,27 +43,62 @@ button.cur
     justify-content: space-between
     align-items: center
 
+.green
+    &::before
+        content: ''
+        position: absolute
+        top: 0
+        left: 0
+        border: 2.66rem solid transparent
+        border-top: 2.66rem solid #26cb15
+        box-sizing: border-box
+        transform: translate(-50%, -50%) rotate(135deg)
+        z-index: 1
+    &::after
+        content: ''
+        position: absolute
+        top: -0.2rem
+        left: -0.33rem
+        max-width: 2.9rem
+        width: 100%
+        height: 2.9rem
+        background: url(../img/star.svg)
+        z-index: 1
+        transform: scale(0.4)
+        z-index: 2
+        +media(1600)
+            font-size: 1.33rem
+            transform: scale(.7)
+            top: -0.2rem
+            left: -0.33rem
+        +media(1700)
+            font-size: 2rem
+            top: -0.1rem
+            left: -0.17rem
+            transform: scale(.7)
+
 header
-    +gradientBG("../header-bg.jpg")
+    +gradientBG("../img/header-bg.jpg", false)
 
 .container
-    max-width: 1200px
+    max-width: 80rem
     width: 100%
-    padding: 0 15px
+    padding: 0 1rem
     box-sizing: border-box
 
 .header-line
-    padding: 35px 0
+    padding: 2.3rem 0
 
 .logo
+    max-width: 8rem
     height: 100%
+    width: 100%
     picture
+        width: 100%
         display: inline-block
         height: 100%
         img
             width: 100%
-    &:hover
-        cursor: url(../img/cursor/hover.cur), auto
         
 
 ul.menu
@@ -50,8 +110,9 @@ ul.menu
 .header-menu
     // background: transparant 
     a
-        font-size: 14px
-        letter-spacing: 1px
+        display: inline-block
+        font-size: 0.9rem
+        letter-spacing: 0.06rem
         text-transform: uppercase
         color: #fff
         font-weight: 400
@@ -59,10 +120,805 @@ ul.menu
         text-align: right
         transition: .5s ease all
         &:hover
-            cursor: url(../img/cursor/hover.cur), auto
             color: #ffb700
-    li+li
-        padding-left: 25px
+    li
+        padding-left: 1.6rem
 
 .flex-end
     justify-content: flex-end
+
+
+
+
+.header-content
+    text-align: center
+    padding: 10.3rem 1rem 2.8rem
+    h1
+        display: inline-block
+        position: relative
+        color: #fff
+        font-size: 4rem
+        font-weight: 400
+        font-family: "Rubik"
+        text-transform: uppercase
+        letter-spacing: 0.06rem
+        &::before
+            content: ''
+            position: absolute
+            top: 0
+            left: 50%
+            height: 2.6rem
+            max-width: 24.6rem
+            width: 100%
+            border: 0.2rem solid rgba(255, 255, 255, .2)
+            border-bottom: none
+            transform: translate(-50%, -100%)
+        +media(440)
+            font-size: 4.8rem
+    h2
+        max-width: 21.3rem
+        margin: 0 auto
+        margin-bottom: 0.6rem
+        font-size: 2.4rem
+        letter-spacing: 0.06rem
+        line-height: 2.9rem
+        text-transform: uppercase
+        color: #333
+        font-weight: 400
+        font-family: "Rubik"
+        text-align: center
+p.first
+        position: relative
+        display: inline-block
+        margin: 0 auto
+        margin-bottom: 1.6rem
+        max-width: 40rem
+        font-size: 1.06rem
+        line-height: 1.6rem
+        color: #fff
+        font-weight: 400
+        font-style: italic
+        font-family: "Rubik"
+        text-align: center
+        &:after
+            content: ''
+            position: absolute
+            top: calc(100% + 2.6rem)
+            left: 50%
+            height: 6.3rem
+            max-width: 24.6rem
+            width: 100%
+            border: 0.2rem solid rgba(255, 255, 255, .2)
+            border-top: none
+            transform: translate(-50%, 0%)
+        +media(440)           
+            font-size: 0.8rem
+a.first
+    position: relative
+    display: block
+    margin: 0 auto
+    margin-bottom: 16rem
+    padding: 0.7rem 1rem
+    max-width: 11.4rem
+    font-size: 1.06rem
+    letter-spacing: 0.06rem
+    text-transform: uppercase
+    text-align: center
+    color: #fdfcfb
+    font-weight: 400
+    font-family: "Rubik"
+    border-radius: 1.5rem
+    box-shadow: 0rem 0.2rem 0.7rem rgba(193,139,1,0.24)
+    background-color: #ffb700
+    z-index: 1
+p.last
+    font-size: 1.06rem
+    line-height: 1.6rem
+    color: #333
+    font-weight: 400
+    font-style: italic
+    font-family: "Rubik"
+    text-align: center
+
+.arrow-block
+    position: relative
+    display: block
+    max-width: 1rem
+    margin: 0 auto
+    margin-bottom: 2.8rem
+    span
+        position: absolute
+        left: 0
+        top: 0
+        width: 1rem
+        height: 1rem
+        border: 0.2rem solid #000
+        box-sizing: border-box
+        border-top: none
+        border-left: none
+        transform: rotate(45deg)
+    span+span
+        top: 0.6rem
+
+
+.about-block
+    padding: 3rem 0 4.6rem
+
+.about
+    max-width: 25.3rem
+    margin: 0 auto
+    text-align: center
+    +media(992)
+        max-width: 100%
+        text-align: left
+
+    h2
+        margin: 0 auto
+        margin-bottom: 1.6rem
+        font-size: 2.4rem
+        letter-spacing: 0.06rem
+        line-height: 2.6rem
+        text-transform: uppercase
+        color: #333
+        font-weight: 400
+        font-family: "Rubik"
+    a
+        margin: 0 auto
+        margin-bottom: 1rem
+        +media(992)
+            margin: 0
+            margin-bottom: 1rem
+    p
+        margin: 0 auto
+        margin-bottom: 3.5rem
+        max-width: 15.3rem
+        font-size: 0.8rem
+        line-height: 1.2rem
+        color: #bbbbbb
+        font-weight: 400
+        font-family: "Rubik"
+        +media(992)
+            margin: 0
+p.about-first
+    margin: 0 auto
+    margin-bottom: 3rem
+    font-size: 1.06rem
+    line-height: 1.4rem
+    color: #555555
+    font-weight: 400
+    font-style: italic
+    font-family: "Rubik"
+    +media(992)
+        margin: 0
+        margin-bottom: 3rem
+
+
+figure.cards
+    position: relative
+    width: 100%
+    margin: 0 auto
+    max-width: 25.3rem
+    padding: 2.3rem 2rem 
+    text-align: center
+    max-height: 19rem
+    height: 100%
+    &:hover
+        background: #fff
+        box-shadow: 0rem 0.26rem 0.7rem rgba(3,20,31,0.05)
+    +media(768)
+        max-width: 100%
+    h3
+        margin-bottom: 0.6rem
+        font-size: 1.2rem
+        line-height: 1.4em
+        color: #333
+        font-weight: 400
+        font-family: "Rubik"
+        text-align: center
+.cards:last-child
+    margin-bottom: 2.66rem
+    +media(768)
+        margin-bottom: 0
+.wrap-img
+    display: inline-block
+    margin: 0 auto
+    width: 100%
+    object-fit: cover
+    svg
+        display: inline-block
+        margin-bottom: 1.6rem
+        width: 100%
+        height: 100%
+        max-width: 3.6rem
+        max-height: 3.6rem
+.velo
+    position: relative
+    &::before
+        content: ''
+        position: absolute
+        top: 0
+        left: 0
+        width: 30%
+        height: 100%
+        background: #09f
+    &::after
+        content: ''
+        position: absolute
+        top: 50%
+        left: 15%
+        width: 20%
+        height: 60px
+        background: url(../img/bike.svg) no-repeat
+        transform: translate(-50%, -50%)
+        z-index: 2
+
+
+
+.price
+    margin-bottom: 0.6rem
+    font-size: 1.6rem
+    color: #09f
+    font-weight: 400
+    font-family: "Rubik"
+    text-align: center
+.des
+    font-size: 0.8rem
+    line-height: 1.4em
+    color: #999
+    font-weight: 400
+    font-family: "Rubik"
+    text-align: left
+.watch
+    text-align: center
+    a
+        position: relative
+        padding-right: 1rem
+        font-size: 0.8rem
+        text-transform: uppercase
+        color: #09f
+        font-weight: 400
+        font-family: "Rubik"
+        text-align: center
+        margin: 0 auto
+        &::after
+            content: ''
+            position: absolute
+            top: 0.3rem
+            right: 0.23rem
+            width: 0.26rem
+            height: 0.26rem
+            border: 0.06rem solid #09f
+            box-sizing: border-box
+            border-top: none
+            border-left: none
+            transform: rotate(-45deg)
+        &::before
+            content: ''
+            position: absolute
+            top: 0.13rem
+            right: 0
+            width: 0.66rem
+            height: 0.66rem
+            border: 0.06rem solid #09f
+            box-sizing: border-box
+            border-radius: 50%
+        +media(992)
+            margin-left: 24%
+
+.island-block     
+    padding: 4.8rem 0 2.4rem
+.island
+    &-wrap-img
+        margin-bottom: 1.3rem
+    h2
+        font-size: 1.7rem
+        line-height: 2.8rem
+        text-transform: uppercase
+        color: #333
+        font-weight: 400
+        font-family: "Rubik"
+        +media(560)
+            font-size: 2.4rem
+.text-block
+    p
+        font-size: 1.06rem
+        line-height: 1.6rem
+        color: #333
+        font-weight: 400
+        font-style: italic
+        font-family: "Rubik"
+.button-line
+    margin-bottom: 1.3rem
+    flex-wrap: wrap
+    a
+        display: block
+        padding: 0.7rem 1.6rem
+        margin-bottom: 0.6rem
+        width: 100%
+        max-width: 100%
+        font-size: 1.06rem
+        letter-spacing: 0.06rem
+        text-transform: uppercase
+        color: #fff
+        font-weight: 400
+        font-family: "Rubik"
+        text-align: center
+        border-radius: 1.53rem
+        filter: drop-shadow(0rem 0.26rem 0.7rem rgba(193,139,1,0.24))
+        background-color: #ffb700
+        +media(420)
+            display: inline-block
+            max-width: 12.2rem
+    a+a
+        margin: 0
+        +media(420)
+            margin-left: 1.66rem
+
+.island-price
+    padding: 1.93rem 2rem
+    background-color: #edf2f5
+    p
+        &:first-child
+            margin-bottom: 0.26rem
+            font-size: 1.6rem
+            color: #09f
+            font-weight: 400
+            font-family: "Rubik"
+            text-align: center
+        &:last-child
+            margin: 0
+            font-size: 0.8rem
+            line-height: 1.3rem
+            color: #999999
+            font-weight: 400
+            font-family: "Rubik"
+            text-align: center
+
+
+
+.wave-bg
+    padding: 6rem 0 6.6rem
+    +gradientBG1("../img/wave.jpg")
+.wave-text
+    text-align: center
+    margin-bottom: 4rem
+    +media(992)
+        margin-bottom: 0
+        text-align: left
+    h2
+        font-size: 1rem
+        letter-spacing: 0.13rem
+        // line-height: 66px
+        text-transform: uppercase
+        color: #fff
+        font-weight: 400
+        font-family: "Rubik"
+        +media(1000)
+            font-size: 2.6rem
+        +media(550)
+            font-size: 3.3rem
+        +media(450)
+            font-size: 3.06rem
+
+    span
+        color: #09f
+        font-size: 1rem
+        letter-spacing: 0.13rem
+        // line-height: 66px
+        text-transform: uppercase
+        font-weight: 400
+        font-family: "Rubik"
+        +media(1000)
+            font-size: 2.6rem
+        +media(550)
+            font-size: 3.3rem
+        +media(450)
+            font-size: 3.06rem
+    p
+        margin: 0 auto 1rem
+        max-width: 32rem
+        font-size: 1.06rem
+        line-height: 1.6rem
+        color: #fff
+        font-weight: 400
+        font-family: "PT Sans"
+        +media(992)
+            margin: 0
+            margin-bottom: 1rem
+.button
+    display: block
+    padding: 0.7rem 1.6rem
+    margin-bottom: 0.6rem
+    width: 100%
+    max-width: 100%
+    font-size: 1.06rem
+    letter-spacing: 0.06rem
+    text-transform: uppercase
+    color: #fff
+    font-weight: 400
+    font-family: "Rubik"
+    text-align: center
+    border-radius: 1.53rem
+    filter: drop-shadow(0rem 0.26rem 0.7rem rgba(193,139,1,0.24))
+    background-color: #ffb700
+    +media(420)
+        display: inline-block
+        max-width: 12.2rem
+
+.client
+    padding: 0
+    position: relative
+    div
+        padding: 2.66rem 1.33rem
+        box-sizing: border-box
+        &::after
+            content: ''
+            position: absolute
+            top: 0
+            left: 50%
+            height: 2.66rem
+            width: 2.8rem
+            background: url(../img/quotes.svg) no-repeat center / cover
+            transform: translate(-50%, -40%)
+        &::before 
+            content: ''
+            position: absolute
+            top: 100%
+            left: 50%
+            height: 5.73rem
+            width: 5.73rem
+            border-radius: 50%
+            background: url(../img/oleg.jpg) no-repeat center / cover
+            transform: translate(-50%, -40%)
+    &::after
+        content: ''
+        position: absolute
+        top: 0
+        left: 0.66rem
+        height: 100%
+        width: 25%
+        border: 0.13rem solid rgba(#fff, .2 )
+        border-right: none
+    &::before
+        content: ''
+        position: absolute
+        top: 0
+        right: 0.66rem
+        height: 100%
+        width: 25%
+        border: 0.13rem solid rgba(#fff, .2 )
+        border-left: none
+    h3
+        font-size: 1.2rem
+        line-height: 1.73rem
+        color: #fff
+        font-weight: 400
+        font-family: "Rubik"
+        text-align: center
+    p
+        &:first-child
+            margin: 0 auto
+            margin-bottom: 1.13rem
+            max-width: 33.33rem
+            font-size: 1.06rem
+            line-height: 1.66rem
+            color: #fff
+            font-weight: 400
+            font-style: italic
+            font-family: "Rubik"
+        &:last-child
+            margin-bottom: 0.33rem
+            font-size: 0.93rem
+            line-height: 1.26rem
+            color: #999999
+            font-weight: 400
+            font-family: "Rubik"
+            text-align: center
+
+.offer
+    padding: 4.8rem 0 5.86rem
+    h2
+        font-size: 2.4rem
+        line-height: 2.8rem
+        text-transform: uppercase
+        color: #333
+        font-weight: 400
+        font-family: "Rubik"
+        text-align: center
+    p
+        text-align: center
+        i
+            font-size: 1.06rem
+            line-height: 1.4rem
+            color: #333
+            font-weight: 400
+            font-style: italic
+            font-family: "Rubik"
+            text-align: center
+
+.cards-offer
+    position: relative
+    max-width: 18rem
+    width: 100%
+    margin: 0 auto
+    margin-bottom: 2rem
+    +media(992)
+        margin: 0
+
+    &:hover
+        background: #fff
+        box-shadow: 0rem 0.26rem 0.7rem rgba(3,20,31,0.05)
+    h3 
+        font-size: 1.2rem
+        line-height: 1.73rem
+        color: #333
+        font-weight: 400
+        font-family: "Rubik"
+        min-height: 100%        
+        +media(992)
+            height: 3.46rem
+        +media(1170)
+            max-height: 4rem
+            max-width: 13rem
+        +media(1171)
+            max-width: 100%   
+            height: 2rem     
+p.desc
+    position: relative
+    font-size: 0.86rem
+    line-height: 1.26rem
+    color: #999999
+    font-weight: 400
+    font-family: "Rubik"
+    max-width: 14.66rem
+    text-align: left
+    margin-bottom: 0.66rem
+    max-height: 5.26rem
+    min-height: 5.13rem
+
+        
+    
+.offer-text
+    padding: 1.33rem
+.order-line
+    display: inline-block
+    +media(1347)
+        display: flex
+    p
+        &:first-child
+            font-size: 1.6rem !important
+            color: #0099ff
+            font-weight: 400
+            font-family: "Rubik"
+    a
+        position: relative
+        margin: 0
+        padding-right: 1.33rem
+        font-size: 0.86rem
+        letter-spacing: 0.06rem
+        text-transform: uppercase
+        color: #ffb700
+        font-weight: 400
+        font-family: "Rubik"
+        text-align: center
+        &::before
+            content: ''
+            position: absolute
+            right: 0
+            top: 0.2rem
+            width: 0.66rem
+            height: 0.66rem
+            border-radius: 50%
+            border: 0.06rem solid #ffb700
+        &::after
+            content: ''
+            position: absolute
+            right: 0.26rem
+            top: 0.4rem
+            width: 0.26rem
+            height: 0.26rem
+            border: 0.06rem solid #ffb700
+            border-top: none
+            border-left: none
+            transform: rotate(-45deg)
+.add-block
+    padding: 5.66rem 0
+.add-info
+    margin-bottom: 1rem
+    text-align: center
+    font-size: 2.4rem
+    letter-spacing: 0.06rem
+    line-height: 2.26rem
+    text-transform: uppercase
+    color: #333
+    font-weight: 400
+    font-family: "Rubik"
+    +media(992)
+        text-align: left
+        margin: 0
+
+.graphic
+    +gradientBG1("../img/graphic-bg.jpg")
+    box-sizing: border-box
+    padding: 1.86rem 1.33rem
+.info
+    +gradientBG1("../img/info-bg.jpg")
+    box-sizing: border-box
+    padding: 1.86rem 1.33rem
+.svg-wrap
+    max-width: 2.93rem
+    margin-right: 1.13rem
+.svg-text
+    h3
+        font-size: 1.06rem
+        line-height: 1.6rem
+        color: #fff
+        font-weight: 400
+        font-family: "Rubik"
+        +media(1149)
+            font-size: 1.2rem
+    p
+        font-size: 0.86rem
+        line-height: 1.26rem
+        color: #bbb
+        font-weight: 400
+        font-family: "Rubik"
+
+.info-card
+    margin: 0 auto
+    max-width: 18rem
+    margin-bottom: 1rem
+    min-height: 18rem
+    max-height: 18rem
+.anna
+    padding: 2.66rem 1rem
+    &::after
+        content: ''
+        position: absolute
+        bottom: 0
+        left: 50%
+        width: 5.73rem
+        height: 5.73rem
+        background: url(../img/anna.jpg) no-repeat center / cover
+        border-radius: 50%
+        transform: translate(-50%, 50%)
+.des-block
+    p
+        max-width: 15.33rem
+        min-height: 5.46rem
+        max-height: 5.53rem
+        font-size: 0.86rem
+        line-height: 1.26rem
+        color: #fefefe
+        font-weight: 400
+        font-family: "Rubik"
+        overflow-y: scroll
+        +media(1149)
+            overflow-y: clip
+
+.button-sky
+    position: relative
+    padding: 0.46rem 1.13rem 0.46rem 2.33rem
+    font-size: 0.8rem
+    letter-spacing: 0rem
+    text-transform: uppercase
+    color: #ffb700
+    font-weight: 400
+    font-family: "Rubik"
+    text-align: center
+    border-radius: 1.06rem
+    background-color: rgba(255,183,0,0)
+    border: 0.13rem solid #ffb700
+    &::before
+        content: ' '
+        position: absolute
+        width: 1rem
+        height: 0.73rem
+        top: 50%
+        left: 1.66rem
+        background: url(../img/sky.svg) no-repeat
+        transform: translate(-50%, -50%) scale(1.1)
+.sky-wrap
+    width: 1rem
+    margin-right: 0.26rem
+
+.question
+    position: relative
+    text-align: center
+    h4
+        position: absolute
+        width: 100%
+        top: 0
+        left: 50%
+        font-size: 1.2rem
+        letter-spacing: 0.06rem
+        line-height: 1.73rem
+        color: #333
+        font-weight: 400
+        font-family: "Rubik"
+        text-align: center
+        transform: translate(-50%, -50%)
+    &::after
+        content: ''
+        position: absolute
+        top: 0
+        left: 0
+        width: 16%
+        height: 100%
+        border: 0.26rem solid #ffb700
+        border-right: none
+        box-sizing: border-box
+    &:before
+        content: ''
+        position: absolute
+        top: 0
+        right: 0
+        width: 16%
+        height: 100%
+        border: 0.26rem solid #ffb700
+        border-left: none
+        box-sizing: border-box
+    p
+        text-align: center
+        color: #999999
+        font-weight: 400
+        &:first-child
+            max-width: 10rem
+            margin: 0 auto
+            margin-bottom: 8.26rem
+            font-size: 0.86rem
+            line-height: 1.06rem
+            font-family: "Rubik"
+            overflow-y: scroll
+            +media(1027)
+                overflow-y: clip
+        &:last-child
+            margin: 0
+            font-size: 0.86rem
+            font-family: "PT Sans"
+    h3
+        font-size: 1.2rem
+        line-height: 1.73rem
+        color: #333
+        font-weight: 400
+        font-family: "Rubik"
+        text-align: center
+.question-num
+    text-align: center
+    a
+        position: relative
+        display: inline-block
+        margin-bottom: 1.13rem
+        padding-left: 1.33rem
+        font-size: 1.2rem
+        color: #0099ff
+        font-weight: 400
+        font-family: "Rubik"
+        text-align: center
+        z-index: 1
+        &::before
+            content: ''
+            position: absolute
+            top: 50%
+            left: 0.66rem
+            width: 1.06rem
+            height: 1.13rem
+            background: url(../img/phone.svg) no-repeat
+            transform: translate(-50%, -50%) scale(1.1)
+            z-index: 1
+
+.palma-block
+    +gradientBG("../img/footer-bg.jpg", true)
+    min-height: 28rem
+
+.copy 
+    background-color: #1a1a1a
+    p
+        padding: 1rem 0
+        margin: 0
+        font-size: 0.86rem
+        line-height: 1.26rem
+        color: #fff
+        font-weight: 400
+        font-family: "Rubik"
+        text-align: center
