@@ -5,10 +5,10 @@
 =gradientBG ($url, $top: true)
     @if $top == true
         background-color: #2159d8
-        background: linear-gradient(to top, transparent 60%, #ffffff 100%), url(#{$url}) center / cover
+        background: linear-gradient(to top, transparent 60%, #f5f8fa 100%), url(#{$url}) no-repeat center top 1px / cover
     @else
         background-color: #2159d8
-        background: linear-gradient(to bottom, transparent 60%, #ffffff 100%), url(#{$url}) center / cover
+        background: linear-gradient(to bottom, transparent 60%, #f5f8fa 100%), url(#{$url}) no-repeat center bottom 1px / cover
 
 
 =gradientBG1 ($url)
