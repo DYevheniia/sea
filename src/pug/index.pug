@@ -15,7 +15,7 @@ html(lang="en")
         include components/mixin
         include ../img/sprite.svg
         header 
-            <nav class="navbar header-line navbar-expand-lg">
+            <nav class="navbar header-line navbar-expand-lg navbar" data-bs-theme="dark">
                 <div class="container">
                     <a class="navbar-brand logo" href="#">
                         <picture>
@@ -73,7 +73,8 @@ html(lang="en")
                         +card (cardsInfo.message)
                     .watch
                         a(href="#") дивитись усі плани
-            hr.container
+            .container
+                hr
             section.container
                 .island-block
                     .row 
@@ -116,7 +117,8 @@ html(lang="en")
                         +cards (cardsOffer.bike)
                         +cards (cardsOffer.island)
                         +cards (cardsOffer.surfing)
-            hr.container
+            .container
+                hr
             section.add-block
                 .container 
                     .row

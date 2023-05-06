@@ -36,6 +36,8 @@ a
     left: 0
 .flex
     display: flex
+.row
+    row-gap: 2rem
 button.cur
     cursor: url(../img/cursor/hover.cur), auto!important
 .flex-between
@@ -173,7 +175,7 @@ p.first
         margin: 0 auto
         margin-bottom: 1.6rem
         max-width: 40rem
-        font-size: 1.06rem
+        font-size: 0.8rem
         line-height: 1.6rem
         color: #fff
         font-weight: 400
@@ -192,7 +194,7 @@ p.first
             border-top: none
             transform: translate(-50%, 0%)
         +media(440)           
-            font-size: 0.8rem
+            font-size: 1.06rem
 a.first
     position: relative
     display: block
@@ -229,6 +231,9 @@ p.last
     max-width: 1rem
     margin: 0 auto
     margin-bottom: 2.8rem
+    transition: .5s ease all
+    &:hover
+        transform: translate(0, .4rem)
     span
         position: absolute
         left: 0
@@ -394,26 +399,27 @@ figure.cards
         &::after
             content: ''
             position: absolute
-            top: 0.35rem
-            right: 0.25rem
+            top: 50%
+            right: 0.1rem
             width: 0.26rem
             height: 0.26rem
-            border: 0.06rem solid #09f
+            border: 1px solid #09f
             box-sizing: border-box
             border-top: none
             border-left: none
-            transform: rotate(-45deg)
+            transform: rotate(-45deg) translateY(calc( -50% - 1px ))
             transition: .5s ease all
         &::before
             content: ''
             position: absolute
-            top: 0.16rem
+            top: 50%
             right: 0
             width: 0.7rem
             height: 0.7rem
             border: 0.06rem solid #09f
             box-sizing: border-box
             border-radius: 50%
+            transform: translateY(-50%)
             transition: .5s ease all
         +media(992)
             margin-left: 24%
@@ -465,12 +471,13 @@ figure.cards
             color: #09f
             background: transparent
             border-color: #09f
-        +media(420)
+        +media(423)
             display: inline-block
+            margin: 0
             max-width: 12.2rem
     a+a
         margin: 0
-        +media(420)
+        +media(423)
             margin-left: 1.66rem
 
 .island-price
@@ -511,11 +518,16 @@ figure.cards
         color: #fff
         font-weight: 400
         font-family: "Rubik"
-        +media(400)
-            font-size: 2.6rem
+        +media(1000)
+            font-size: 3rem
         +media(550)
             font-size: 3.7rem
-
+        +media(992)
+            font-size: 2.8rem
+        +media(400)
+            font-size: 2.6rem
+        
+       
     span
         color: #09f
         font-size: 2rem
@@ -523,10 +535,14 @@ figure.cards
         text-transform: uppercase
         font-weight: 400
         font-family: "Rubik"
-        +media(400)
-            font-size: 2.6rem
+        +media(1000)
+            font-size: 3rem
         +media(550)
             font-size: 3.7rem
+        +media(992)
+            font-size: 2.8rem
+        +media(400)
+            font-size: 2.6rem
     p
         margin: 0 auto 1rem
         max-width: 32rem
@@ -565,7 +581,7 @@ figure.cards
     padding: 0
     position: relative
     div
-        padding: 2.66rem 1.33rem
+        padding: 2.66rem 2.5rem
         box-sizing: border-box
         &::after
             content: ''
@@ -593,7 +609,7 @@ figure.cards
         left: 0.66rem
         height: 100%
         width: 25%
-        border: 0.13rem solid rgba(#fff, .2 )
+        border: 0.26rem solid rgba(#fff, .2 )
         border-right: none
     &::before
         content: ''
@@ -602,7 +618,7 @@ figure.cards
         right: 0.66rem
         height: 100%
         width: 25%
-        border: 0.13rem solid rgba(#fff, .2 )
+        border: 0.26rem solid rgba(#fff, .2 )
         border-left: none
     h3
         font-size: 1.2rem
@@ -654,12 +670,12 @@ figure.cards
 
 .cards-offer
     position: relative
-    max-width: 18rem
+    max-width: 26rem
     width: 100%
     margin: 0 auto
-    margin-bottom: 2rem
-    +media(992)
-        margin: 0
+    // margin-bottom: 2rem
+    // +media(992)
+    //     margin: 0
 
     &:hover
         background: #fff
@@ -707,9 +723,9 @@ p.desc
             font-weight: 400
             font-family: "Rubik"
             +media(992)
-            // font-size: 1rem 
+                font-size: 1.1rem 
             +media(1030)
-                font-size: 1.1rem
+                font-size: 1.3rem
             +media(1100)
                 font-size: 1.6rem
     a
@@ -797,12 +813,15 @@ p.desc
 
 .info-card
     margin: 0 auto
-    max-width: 18rem
-    margin-bottom: 4rem
-    min-height: 18rem
-    max-height: 18rem
-    +media(992)
-        margin-bottom: 0
+    max-width: 30rem
+    display: flex
+    justify-content: space-around
+    flex-direction: column
+    height: 100%
+    // margin-bottom: 4rem
+    // min-height: 18rem
+    // max-height: 18rem
+    
 .anna
     padding: 2.66rem 1rem
     &::after
@@ -818,17 +837,11 @@ p.desc
 .des-block
     p
         max-width: 15.33rem
-        min-height: 5.46rem
-        max-height: 5.53rem
         font-size: 0.86rem
         line-height: 1.26rem
         color: #fefefe
         font-weight: 400
         font-family: "Rubik"
-        overflow-y: scroll
-        +media(1149)
-            overflow-y: clip
-
 .button-sky
     position: relative
     padding: 0.46rem 1.13rem 0.46rem 2.33rem
@@ -906,6 +919,7 @@ p.desc
             margin: 0
             font-size: 0.86rem
             font-family: "PT Sans"
+            margin-bottom: 1rem
     h3
         font-size: 1.2rem
         line-height: 1.73rem
