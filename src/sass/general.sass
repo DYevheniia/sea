@@ -8,8 +8,10 @@ html
         font-size: 17px
     +media(1700)
         font-size: 20px
+    +media(1800)
+        font-size: 22px
     +media(1900)
-        font-size: 25px
+        font-size: 23px
 
 body
     margin: 0
@@ -347,19 +349,29 @@ figure.cards
         position: absolute
         top: 0
         left: 0
-        width: 21%
+        width: 3.66rem
         height: 100%
         background: #09f
     &::after
         content: ''
         position: absolute
+        left: 9%
         top: 50%
-        left: 11%
-        width: 15%
-        height: 60px
+        width: 14%
+        height: 26%
         background: url(../img/bike.svg) no-repeat
         transform: translate(-50%, -50%)
         z-index: 2
+        +media(350)
+            left: 7.5%
+            width: 12%
+        +media(992)
+            left: 12%
+            width: 15%
+        +media(1120)
+            left: 10%
+            width: 15%
+
 
 
 
@@ -367,6 +379,7 @@ figure.cards
     margin-bottom: 0.6rem
     color: #09f
     font-weight: 400
+    font-size: 1.6rem
     font-family: "Rubik"
     text-align: center
     
@@ -704,16 +717,23 @@ p.desc
     color: #999999
     font-weight: 400
     font-family: "Rubik"
-    max-width: 14.66rem
-    text-align: left
     margin-bottom: 0.66rem
-    max-height: 5.26rem
-    min-height: 5.13rem
+    text-align: left
+    max-width: 100%
+    min-height: 3.4rem
+    +media(992)
+        max-width: 14.66rem
+        min-height: 5.4rem
+
 
         
     
 .offer-text
     padding: 1.33rem
+    display: flex
+    justify-content: space-between
+    flex-direction: column
+    height: 100%
 .order-line
     align-items: baseline
     p
